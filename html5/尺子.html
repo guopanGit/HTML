@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>尺子</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            margin: 100px;
+        }
+        ul li{
+            width: 3px;
+            height: 8px;
+            background-color: red;
+            margin-right: 5px;
+            float: left;
+            position: relative;
+        }
+        ul li:nth-child(5n+1){
+            width: 5px;
+            height: 12px;
+        }
+        ul li:nth-child(10n+1){
+            height: 16px;
+            /*计算函数*/
+            counter-increment: num ;
+        }
+        ul li:nth-child(10n):before{
+            position: absolute;
+            content: counter(num) '0';
+            top: 20px;
+        }
+        ul li:first-child:before{
+            content: '0';
+            position: absolute;
+            top: 20px;
+        }
+    </style>
+</head>
+<body>
+<ul id="ul"></ul>
+<script>
+    var ul = document.getElementById('ul');
+    for (var i = 0; i < 100; i++) {
+        var li = document.createElement('li');
+        ul.appendChild(li);
+    }
+</script>
+</body>
+</html>

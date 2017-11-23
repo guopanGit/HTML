@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片切换</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #nav{
+            width: 805px;
+            height: 81px;
+        }
+        #nav li{
+            float: left;
+            width: 130px;
+            height: 81px;
+            margin-right: 5px;
+        }
+        #nav li img{
+            width: 130px;
+        }
+        #nav li:last-child{
+            margin-right: 0;
+        }
+        #counter{
+            width: 805px;
+            height: 505px;
+            position: relative;
+        }
+        #counter li{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 805px;
+            height: 505px;
+        }
+        #counter li img{
+            width: 100%;
+        }
+        #counter .firtLi{
+            z-index: 1;
+        }
+        #counter li:target{
+             z-index: 2;
+         }
+
+    </style>
+</head>
+<body>
+<ul id="counter">
+    <li class="firtLi" id="jd001"><img src="img/jd001.jpg" alt=""></li>
+    <li id="jd002"><img src="img/jd002.jpg" alt=""></li>
+    <li id="jd003"><img src="img/jd003.jpg" alt=""></li>
+    <li id="jd004"><img src="img/jd004.jpg" alt=""></li>
+    <li id="jd005"><img src="img/jd005.jpg" alt=""></li>
+    <li id="jd006"><img src="img/jd006.jpg" alt=""></li>
+</ul>
+<ul id="nav">
+    <li><a href="#jd001"><img src="img/jd001.jpg" alt=""></a></li>
+    <li><a href="#jd002"><img src="img/jd002.jpg" alt=""></a></li>
+    <li><a href="#jd003"><img src="img/jd003.jpg" alt=""></a></li>
+    <li><a href="#jd004"><img src="img/jd004.jpg" alt=""></a></li>
+    <li><a href="#jd005"><img src="img/jd005.jpg" alt=""></a></li>
+    <li><a href="#jd006"><img id="jd01" src="img/jd006.jpg" alt=""></a></li>
+</ul>
+</body>
+</html>
