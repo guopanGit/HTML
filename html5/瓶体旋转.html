@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>瓶体旋转</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            display: block;
+        }
+        #box{
+            width: 500px;
+            height: 500px;
+            margin: 200px auto;
+            position: relative;
+            overflow: hidden;
+
+        }
+        #coke_bg,#coke_kan{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #coke_bg{
+            top: 10px;
+            left: 0px;
+        }
+        #coke_bg img{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+
+    <div id="coke_bg">
+        <img src="img/coke_bg.jpg" alt="">
+        <img src="img/coke_bg.jpg" alt="">
+    </div>
+    <div id="coke_kan">
+        <img src="img/coke_can.png" alt="">
+    </div>
+</div>
+<script>
+    window.onload=function () {
+        var cokeBg = document.getElementById('coke_bg');
+        var  cokeKan= document.getElementById('coke_kan');
+        var box = document.getElementById('box');
+        var img = document.querySelectorAll('#coke_bg img');
+        var imgW = img[0].offsetWidth;
+        var cokeBgW= imgW*2;
+            cokeBg.style.width = cokeBgW + 'px';
+        var cokeKanW = cokeKan.offsetWidth;
+        var cokeKanH = cokeKan.offsetHeight;
+        box.style.width =cokeKanW + 'px';
+        box.style.height = cokeKanH + 'px';
+        var dis = 0;
+        setInterval(function () {
+            dis --;
+            if(-dis>=imgW){
+                dis=0;
+            }
+            cokeBg.style.transform = 'translatex('+ dis + 'px)'
+        },1)
+    }
+</script>
+</body>
+</html>
