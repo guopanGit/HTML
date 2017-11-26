@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>时钟</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            position: relative;
+            margin: 100px auto;
+            width: 400px;
+            height: 400px;
+            background-image:url("img/w99-1920x1024.jpg") ;
+            background-size: 637.87px 400px;
+            background-position: -130px 0;
+            background-repeat: no-repeat;
+            border-radius: 50%;
+        }
+        #d1{
+            position: absolute;
+            top: 140px;
+            left: 197px;
+            width: 6px;
+            height: 60px;
+            background-color: black;
+            transform-origin: 3px 60px;
+        }
+        #d2{
+            position: absolute;
+            top:120px;
+            left: 198px;
+            width: 4px;
+            height: 80px;
+            background-color: black;
+            transform-origin: 2px 80px;
+        }
+        #d3{
+            position: absolute;
+            top:100px;
+            left: 199px;
+            width: 2px;
+            height: 100px;
+            background-color: #ff77ff;
+            transform-origin: 1px 100px;
+        }
+        #d4{
+            position: absolute;
+            top:190px;
+            left: 190px;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+        }
+        #u1 {
+            list-style: none;
+            position: absolute;
+        }
+        #u1 li {
+            position: absolute;
+            top: 0px;
+            left: 199px;
+            width: 2px;
+            height: 8px;
+            background-color: black;
+            transform-origin: 1px 200px;
+        }
+        #u1 li:nth-child(5n+1){
+            width: 4px;
+            height: 16px;
+            left: 198px;
+            transform-origin: 2px 200px;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div id="d1"></div>
+    <div id="d2"></div>
+    <div id="d3"></div>
+    <div id="d4"></div>
+  <ul id="u1"></ul>
+</div>
+<script>
+    var ul = document.getElementById('u1');
+    var hourDom = document.getElementById('d1');
+    var minDom = document.getElementById('d2');
+    var secDom = document.getElementById('d3');
+
+    for (var i = 0; i < 60; i++) {
+        var li = document.createElement('li');
+            ul.appendChild(li);
+            li.style.transform='rotate('  + 6*i+ 'deg)'
+    }
+    
+        setInterval(function () {
+            var date = new Date();
+            var sec = date.getSeconds();
+            var min = date.getMinutes();
+            min = min +sec/60;
+            var hour = date.getHours();
+            hour +=min/60;
+            hourDom.style.transform = 'rotate(' + hour*30+ 'deg)';
+            minDom.style.transform = 'rotate(' + min*6+ 'deg)';
+            secDom.style.transform = 'rotate(' + sec*6+ 'deg)';
+        },1000);
+</script>
+</body>
+</html>
